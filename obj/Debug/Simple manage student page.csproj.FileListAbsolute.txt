@@ -8,3 +8,4 @@ C:\Users\devah\OneDrive\Desktop\Course 14\Simple manage student page\obj\Debug\S
 C:\Users\devah\OneDrive\Desktop\Course 14\Simple manage student page\obj\Debug\Simple manage student page.csproj.CoreCompileInputs.cache
 C:\Users\devah\OneDrive\Desktop\Course 14\Simple manage student page\obj\Debug\Simple manage student page.exe
 C:\Users\devah\OneDrive\Desktop\Course 14\Simple manage student page\obj\Debug\Simple manage student page.pdb
+C:\Users\devah\OneDrive\Desktop\Course 14\Simple manage student page\obj\Debug\Simple_manage_student_page.FormLogin.resources
