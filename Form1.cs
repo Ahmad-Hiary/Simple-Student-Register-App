@@ -23,34 +23,34 @@ namespace Simple_manage_student_page
 
         private void txtIDInfo_TextChanged(object sender, EventArgs e)
         {
-            lbbId.Text = txtIDInfo.Text;
+            
         }
 
         private void txtNameInfo_TextChanged(object sender, EventArgs e)
         {
-            lbbName.Text = txtNameInfo.Text;
+
         }
 
         private void txtEmailInfo_TextChanged(object sender, EventArgs e)
         {
-            lbbEmail.Text = txtEmailInfo.Text;
+            
         }
 
         private void txtPhoneInfo_TextChanged(object sender, EventArgs e)
         {
-            lbbPhone.Text = txtPhoneInfo.Text;
+            
         }
 
         private void txtGradeInfo_TextChanged(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtGradeInfo.Text))
             {
-                lbbGrade.Text = "";
+                
 
             }
             else
             {
-                lbbGrade.Text = txtGradeInfo.Text+"%";
+               
             }
 
         }
@@ -60,29 +60,24 @@ namespace Simple_manage_student_page
             
             if (rbMaleInfo.Checked)
             {
-                lbbGender.Text = rbMaleInfo.Checked ? "Male" : "Female";
-                lbbGender.Text = "Male";
-                pictureBox1.Image = Properties.Resources.Maleee;
+                
             }
         }
 
         private void rbFemaleInfo_CheckedChanged(object sender, EventArgs e)
         {
-            lbbGender.Text = rbFemaleInfo.Checked ? "Female" : "Male";
+            
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            lbbId.Text = "";
-            lbbName.Text = "";
-            lbbEmail.Text = "";
-            lbbPhone.Text = "";
-            lbbGrade.Text = "";
-            lbbGender.Text = "Male";
+            
 
             listView1.Columns.Add("ID", 80);
             listView1.Columns.Add("Name", 200);
             listView1.Columns.Add("Email", 250);
             listView1.Columns.Add("Phone", 150);
+            listView1.Columns.Add("Gender", 80);
+            listView1.Columns.Add("Year", 85); 
             listView1.Columns.Add("Grade", 80);
             listView1.HeaderStyle = ColumnHeaderStyle.None;
         }
@@ -97,8 +92,18 @@ namespace Simple_manage_student_page
             
 
             Item.SubItems.Add(txtNameInfo.Text);
+
             Item.SubItems.Add(txtEmailInfo.Text);
+
             Item.SubItems.Add(txtPhoneInfo.Text);
+
+            if(rbFemaleInfo.Checked)
+                Item.SubItems.Add("Female");
+            else
+                Item.SubItems.Add("Male");
+
+            Item.SubItems.Add(txtYear.Text);
+
             Item.SubItems.Add(txtGradeInfo.Text+"%");
             listView1.Items.Add(Item);
 
@@ -115,8 +120,7 @@ namespace Simple_manage_student_page
             txtGradeInfo.Clear();
             txtEmailInfo.Clear();
             txtPhoneInfo.Clear();
-            lbbGrade.Text = " ";
-            lbbGender.Text = "Male";
+            
 
 
             rbMaleInfo.Checked = true;
@@ -124,6 +128,7 @@ namespace Simple_manage_student_page
         }
         private void label17_Click(object sender, EventArgs e)
         {
+
 
         }
 
@@ -139,9 +144,7 @@ namespace Simple_manage_student_page
         {
             if (rbFemaleInfo.Checked)
             {
-                lbbGender.Text = "Female";
-                lbbGender.Text = "Female";
-                pictureBox1.Image = Properties.Resources.Female;
+                
             }
         }
 
@@ -253,6 +256,11 @@ namespace Simple_manage_student_page
         private void txtGradeInfo_Leave(object sender, EventArgs e)
         {
             ep1.SetError(txtGradeInfo, "");
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

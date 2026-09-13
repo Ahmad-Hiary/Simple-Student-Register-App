@@ -54,5 +54,16 @@ namespace Simple_manage_student_page
             pbEye.Image = Resources.eye;
             txtPassWord.UseSystemPasswordChar = false;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtPassWord.Text) || string.IsNullOrEmpty(txtUserName.Text))
+                return;
+
+            Form1 frm = new Form1();
+
+            frm.ShowDialog();
+
+        }
     }
 }

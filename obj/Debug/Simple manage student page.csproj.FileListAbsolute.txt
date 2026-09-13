@@ -9,3 +9,14 @@ C:\Users\devah\OneDrive\Desktop\Course 14\Simple manage student page\obj\Debug\S
 C:\Users\devah\OneDrive\Desktop\Course 14\Simple manage student page\obj\Debug\Simple manage student page.exe
 C:\Users\devah\OneDrive\Desktop\Course 14\Simple manage student page\obj\Debug\Simple manage student page.pdb
 C:\Users\devah\OneDrive\Desktop\Course 14\Simple manage student page\obj\Debug\Simple_manage_student_page.FormLogin.resources
+C:\Users\devah\Desktop\Course 14\Simple manage student page\bin\Debug\Simple manage student page.exe.config
+C:\Users\devah\Desktop\Course 14\Simple manage student page\bin\Debug\Simple manage student page.exe
+C:\Users\devah\Desktop\Course 14\Simple manage student page\bin\Debug\Simple manage student page.pdb
+C:\Users\devah\Desktop\Course 14\Simple manage student page\obj\Debug\Simple manage student page.csproj.AssemblyReference.cache
+C:\Users\devah\Desktop\Course 14\Simple manage student page\obj\Debug\Simple_manage_student_page.Form1.resources
+C:\Users\devah\Desktop\Course 14\Simple manage student page\obj\Debug\Simple_manage_student_page.FormLogin.resources
+C:\Users\devah\Desktop\Course 14\Simple manage student page\obj\Debug\Simple_manage_student_page.Properties.Resources.resources
+C:\Users\devah\Desktop\Course 14\Simple manage student page\obj\Debug\Simple manage student page.csproj.GenerateResource.cache
+C:\Users\devah\Desktop\Course 14\Simple manage student page\obj\Debug\Simple manage student page.csproj.CoreCompileInputs.cache
+C:\Users\devah\Desktop\Course 14\Simple manage student page\obj\Debug\Simple manage student page.exe
+C:\Users\devah\Desktop\Course 14\Simple manage student page\obj\Debug\Simple manage student page.pdb
