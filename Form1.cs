@@ -21,57 +21,10 @@ namespace Simple_manage_student_page
 
 
 
-        private void txtIDInfo_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void txtNameInfo_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtEmailInfo_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void txtPhoneInfo_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void txtGradeInfo_TextChanged(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(txtGradeInfo.Text))
-            {
-                
-
-            }
-            else
-            {
-               
-            }
-
-        }
-
-        private void rbMaleInfo_CheckedChanged(object sender, EventArgs e)
-        {
-            
-            if (rbMaleInfo.Checked)
-            {
-                
-            }
-        }
-
-        private void rbFemaleInfo_CheckedChanged(object sender, EventArgs e)
-        {
-            
-        }
         private void Form1_Load(object sender, EventArgs e)
         {
             
-
+            
             listView1.Columns.Add("ID", 80);
             listView1.Columns.Add("Name", 200);
             listView1.Columns.Add("Email", 250);
@@ -82,9 +35,24 @@ namespace Simple_manage_student_page
             listView1.HeaderStyle = ColumnHeaderStyle.None;
         }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
+
+        bool CheckAddRecordRules()
         {
-            if (string.IsNullOrEmpty(txtIDInfo.Text) || string.IsNullOrEmpty(txtNameInfo.Text))
+            if (string.IsNullOrWhiteSpace(txtIDInfo.Text) ||
+       string.IsNullOrWhiteSpace(txtNameInfo.Text) ||
+       string.IsNullOrWhiteSpace(txtEmailInfo.Text) ||
+       string.IsNullOrWhiteSpace(txtPhoneInfo.Text) ||
+       string.IsNullOrWhiteSpace(txtYear.Text) ||
+       string.IsNullOrWhiteSpace(txtGradeInfo.Text))
+            {
+                return false;
+            }
+
+            return true;
+        }
+        private void AddPicture_Click(object sender, EventArgs e)
+        {
+            if (CheckAddRecordRules())
                 return;
 
             ListViewItem Item = new ListViewItem(txtIDInfo.Text.Trim());
@@ -105,6 +73,7 @@ namespace Simple_manage_student_page
             Item.SubItems.Add(txtYear.Text);
 
             Item.SubItems.Add(txtGradeInfo.Text+"%");
+
             listView1.Items.Add(Item);
 
             Reset();
@@ -120,34 +89,20 @@ namespace Simple_manage_student_page
             txtGradeInfo.Clear();
             txtEmailInfo.Clear();
             txtPhoneInfo.Clear();
-            
+            txtYear.Clear();
 
 
             rbMaleInfo.Checked = true;
 
         }
-        private void label17_Click(object sender, EventArgs e)
-        {
-
-
-        }
-
-        private void pictureBox3_Click(object sender, EventArgs e)
+       
+        private void DeletePicture_Click(object sender, EventArgs e)
         {
             if (listView1.SelectedItems.Count > 0)
             {
                 listView1.Items.Remove(listView1.SelectedItems[0]);
             }
         }
-
-        private void rbFemaleInfo_CheckedChanged_1(object sender, EventArgs e)
-        {
-            if (rbFemaleInfo.Checked)
-            {
-                
-            }
-        }
-
 
         private void txtIDInfo_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -165,7 +120,7 @@ namespace Simple_manage_student_page
         }
         private void txtIDInfo_Validating(object sender, CancelEventArgs e)
         {
-            if (txtIDInfo.Text.Length<4)
+            if (txtIDInfo.Text.Length!=5)
             {
                 txtIDInfo.Focus();
                 ep1.SetError(txtIDInfo, "ID Digits Must Count 5 Digits");
@@ -193,7 +148,7 @@ namespace Simple_manage_student_page
             else
             {
                 txtGradeInfo.Focus();
-                ep1.SetError(txtPhoneInfo, "");
+                ep1.SetError(txtGradeInfo, "");
             }
             
 
@@ -212,7 +167,7 @@ namespace Simple_manage_student_page
                 e.Handled = true;
                 ep1.SetError(txtGradeInfo, "Grade Must Be between 0 and 100 !");
             }
-            ep1.SetError(txtPhoneInfo, "");
+            ep1.SetError(txtGradeInfo, "");
         }
 
 
@@ -258,9 +213,55 @@ namespace Simple_manage_student_page
             ep1.SetError(txtGradeInfo, "");
         }
 
-        private void pictureBox4_Click(object sender, EventArgs e)
+
+        private ListViewItem selectedItemForEdit = null;
+        private void EditPicture_Click(object sender, EventArgs e)
         {
 
+            if (listView1.SelectedItems.Count == 0)
+                return;
+
+            selectedItemForEdit = listView1.SelectedItems[0];
+
+
+            txtIDInfo.Text = selectedItemForEdit.Text;
+            txtNameInfo.Text = selectedItemForEdit.SubItems[1].Text;
+            txtEmailInfo.Text = selectedItemForEdit.SubItems[2].Text;
+            txtPhoneInfo.Text = selectedItemForEdit.SubItems[3].Text;
+            rbFemaleInfo.Checked = selectedItemForEdit.SubItems[3].Text == "Female" ? true : false;
+            txtYear.Text = selectedItemForEdit.SubItems[5].Text;
+            txtGradeInfo.Text = selectedItemForEdit.SubItems[6].Text.TrimEnd('%');
+
+            listView1.Items.Remove(listView1.SelectedItems[0]);
+
+        }
+
+        
+        private void listView1_MouseDoubleClick(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count == 0)
+                return;
+
+            ListViewItem selectedItem = listView1.SelectedItems[0];
+
+            FormStudentCard card = new FormStudentCard();
+            card.SetStudentInfo(
+                selectedItem.Text,
+                selectedItem.SubItems[1].Text,
+                selectedItem.SubItems[2].Text,
+                selectedItem.SubItems[3].Text,
+                selectedItem.SubItems[4].Text,
+                selectedItem.SubItems[5].Text,
+                selectedItem.SubItems[6].Text
+            );
+            card.ShowDialog();
+        }
+
+        private void LogOut_Click(object sender, EventArgs e)
+        {
+            
+            this.Close();
+            
         }
     }
 }

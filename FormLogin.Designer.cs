@@ -31,8 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLogin));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new Guna.UI2.WinForms.Guna2Button();
             this.pbEye = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -40,6 +40,8 @@
             this.txtUserName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.AppImages = new System.Windows.Forms.ImageList(this.components);
+            this.label4 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbEye)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -48,8 +50,9 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.panel1.Controls.Add(this.pbEye);
+            this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.pbEye);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
@@ -59,6 +62,25 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(459, 314);
             this.panel1.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.BorderColor = System.Drawing.Color.White;
+            this.button1.BorderRadius = 10;
+            this.button1.BorderThickness = 2;
+            this.button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.button1.FillColor = System.Drawing.Color.Purple;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(128, 235);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(211, 46);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Log In";
+            this.button1.Click += new System.EventHandler(this.Login_Button_Click);
             // 
             // pbEye
             // 
@@ -71,19 +93,6 @@
             this.pbEye.TabStop = false;
             this.pbEye.Visible = false;
             this.pbEye.Click += new System.EventHandler(this.pbEye_Click);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Purple;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(124, 226);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(211, 46);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Log In";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // pictureBox1
             // 
@@ -144,11 +153,11 @@
             this.label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label3.Font = new System.Drawing.Font("Microsoft YaHei", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(219, 26);
+            this.label3.Location = new System.Drawing.Point(261, 28);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(398, 42);
+            this.label3.Size = new System.Drawing.Size(284, 42);
             this.label3.TabIndex = 3;
-            this.label3.Text = "Manage Students System";
+            this.label3.Text = "Students Register";
             // 
             // AppImages
             // 
@@ -160,13 +169,29 @@
             this.AppImages.Images.SetKeyName(3, "Man.png");
             this.AppImages.Images.SetKeyName(4, "new Female.png");
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(162, 206);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(81, 16);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Try Again in ";
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(16)))), ((int)(((byte)(26)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(863, 537);
+            this.ClientSize = new System.Drawing.Size(841, 537);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.panel1);
             this.Cursor = System.Windows.Forms.Cursors.Default;
@@ -191,9 +216,11 @@
         private System.Windows.Forms.TextBox txtPassWord;
         private System.Windows.Forms.TextBox txtUserName;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pbEye;
         private System.Windows.Forms.ImageList AppImages;
+        private Guna.UI2.WinForms.Guna2Button button1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Timer timer1;
     }
 }
